@@ -1,0 +1,93 @@
+html{
+    min-height:100%;
+    position:relative;
+}
+
+.header {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.header {
+    justify-content: space-between;
+}
+
+.header {
+    padding: 10px 0;
+    margin: 0 auto;
+    background-color: #005eb7;
+
+}
+
+.logo-icon {
+    padding-left: 10px;
+    height: 20px;
+    width: auto;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    flex-grow: 2;
+    margin: 0;
+    padding-left: 1%;
+}
+
+.navi {
+    list-style: none;
+    padding-right: -1%;
+    flex: 1;
+    justify-content: flex-end;
+}
+/******************************
+Body Styling
+*******************************/
+body {
+    background-color: #F8F8F8;
+    margin: 0;
+}
+
+.left-panel {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    position:absolute;
+    background: white;
+    float: left;
+
+}
+.release-panel {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+}
+
+/******************************
+Buttons Styling
+*******************************/
+
+.btn {
+    background: white!important;
+    color: #0f0f0f;
+    width: 100%;
+    border-radius: 0;
+}
+
+.btn:hover {
+    background: gainsboro!important;
+    color: #0f0f0f;
+}
+
+.btn:active {
+    background: #005eb7!important;
+    color: white;
+}
+
+.btn:focus {
+    background: #005eb7!important;
+}
+
+.btn:focus:hover {
+    color: white;
+}
+
