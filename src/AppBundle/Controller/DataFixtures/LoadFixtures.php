@@ -12,6 +12,7 @@ namespace AppBundle\Controller\DataFixtures;
 use AppBundle\Entity\User;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Nelmio\Alice\Loader\NativeLoader;
 
 class LoadFixtures implements ORMFixtureInterface
 {
@@ -24,14 +25,11 @@ class LoadFixtures implements ORMFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $user->setUserName('BA'.rand(1, 5));
-        $user->setUserName('tll'.rand(1, 5));
-        $user->setUserName('dev'.rand(1,10));
-        $user->setUserName('qa'.rand(1,5));
-        $user->setEmail('userName'.rand(1, 50).'@emag.ro');
-
-        $manager->persist($user);
-        $manager->flush();
+        $loader = new NativeLoader();
+        $objectSet = $loader->loadFile(__DIR__ . '/fixtures.yml')->getObjects();
+        foreach ($objectSet as $object) {
+            $manager->persist($object);
+            $manager->flush();
+        }
     }
 }

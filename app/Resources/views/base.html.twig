@@ -16,6 +16,7 @@
     <img class="logo-icon" src="{{ asset('images/logo.png') }}">
     <h1 class="logo"> Info App </h1>
     <ul class="navi">
+        <li><a href="{{ path('security_login') }}">Login</a> </li>
 
     </ul>
 </header>
@@ -26,14 +27,6 @@
     {#{{ msg }}#}
     {#</div>#}
     {#{% endfor %}#}
-
-    <div class="left-panel">
-        <ul class="release-panel">
-            <li> <button type="button" class="btn btn-primary btn-add"> Add Release </button></li>
-            <li><button type="button" class="btn btn-primary btn-search">Search Release</button></li>
-        </ul>
-    </div>
-
     <div>
         {% block body %}
         {% endblock %}

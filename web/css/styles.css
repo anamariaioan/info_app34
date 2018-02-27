@@ -33,12 +33,48 @@ html{
     padding-left: 1%;
 }
 
+/******************************
+Navi Styling
+*******************************/
+
 .navi {
     list-style: none;
     padding-right: -1%;
-    flex: 1;
+    /*flex: 1;*/
     justify-content: flex-end;
 }
+
+
+.navi li a {
+    text-decoration: none;
+    color: #3a3a3a;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.navi li a:hover {
+    color: #000;
+}
+
+.navi > li > a:focus, .nav > li > a:hover {
+    background-color: transparent;
+}
+
+.navi li:last-child a {
+    background: #eee;
+    border-radius: 2px;
+    transition: 200ms ease-in-out;
+    padding: 8px 16px 7px;
+}
+
+.navi li:last-child a:hover {
+    background: rgba(200, 200, 200, .5);
+    color: #000;
+}
+
+
+
 /******************************
 Body Styling
 *******************************/
@@ -49,7 +85,7 @@ body {
 
 .left-panel {
     display: flex;
-    width: 10%;
+    width: 15%;
     height: 100%;
     position:absolute;
     background: white;
@@ -79,6 +115,9 @@ Buttons Styling
     border-radius: 0;
 }
 
+.btn-login {
+    border-radius: 3px;
+}
 
 
 .btn:hover {

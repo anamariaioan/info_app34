@@ -1,0 +1,4 @@
+AppBundle\Entity\User:
+    userName{1..10}:
+        userName: userName<current()>
+        email: userName<current()>\@emag.ro
