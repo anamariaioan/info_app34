@@ -12,6 +12,7 @@ namespace AppBundle\Security;
 use AppBundle\Form\LoginForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

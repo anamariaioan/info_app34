@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class InfoAppController extends Controller
 {
     /**
-     * @Route("/home")
+     * @Route("/", name="homepage")
      */
     public function showAction()
     {
