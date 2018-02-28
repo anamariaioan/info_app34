@@ -20,10 +20,20 @@ services:
 
     # controllers are imported separately to make sure they're public
     # and have a tag that allows actions to type-hint services
+    Knp\Bundle\MarkdownBundle\MarkdownParserInterface: '@markdown.parser'
+    Doctrine\ORM\EntityManager: '@doctrine.orm.default_entity_manager'
+
     AppBundle\Controller\:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
+
+    AppBundle\Doctrine\HashPasswordListener:
+        tags: [doctrine.event_subscriber]
+
+    AppBundle\Form\TypeExtension\HelpFormExtension:
+         tags:
+             - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
