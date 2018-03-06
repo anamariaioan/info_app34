@@ -1,5 +1,5 @@
 AppBundle\Entity\User:
-   userName{1..10}:
+   userName{1..20}:
         userName: userName<current()>
         email: userName<current()>\@emag.ro
         plainPassword: ilikeapples
