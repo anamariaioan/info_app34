@@ -1,12 +1,52 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
-<div class="left-panel">
-    <ul class="release-panel">
-        <li> <button type="button" class="btn btn-primary btn-add"> Add Release </button></li>
-        <li><button type="button" class="btn btn-primary btn-search">Search Release</button></li>
-    </ul>
-</div>
+    <div class="left-panel">
+        <ul class="release-panel">
+            <li><a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary btn-add"> Home </button></a></li>
+            <li><a href="{{ path('add') }}"><button type="button" class="btn btn-primary btn-add"> New release </button></a></li>
+            <li><a href="{{ path('search') }}"><button type="button" class="btn btn-primary btn-search">List releases</button></a></li>
+        </ul>
+    </div>
+
+    <div class="news font">
+        <div>
+            <h2>Latest releases</h2>
+        </div>
+
+        <div>
+            <ul class="fa-ul font">
+                <li>Release 10</li>
+                <li>Release 9</li>
+                <li>Release 8</li>
+                <li>Release 7</li>
+                <li>Release 6</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="top3 font">
+        <div class="top3releases fa-ul">
+            <h4>Popular releases</h4>
+            <ul class="popular-ul">
+                <li>Release 1</li>
+                <li>Release 2</li>
+                <li>Release 3</li>
+            </ul>
+        </div>
+
+        <div class="top3apps fa-ul font">
+            <h4>Popular applications</h4>
+            <ul class="popular-ul">
+                <li>App 1</li>
+                <li>App 2</li>
+                <li>App 3</li>
+            </ul>
+        </div>
+
+    </div>
 
 {% endblock %}

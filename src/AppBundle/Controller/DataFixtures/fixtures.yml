@@ -3,3 +3,12 @@ AppBundle\Entity\User:
         userName: userName<current()>
         email: userName<current()>\@emag.ro
         plainPassword: ilikeapples
+
+
+AppBundle\Entity\Application:
+   application{1..10}:
+        application (unique): application<numberBetween(11, 20)>
+
+AppBundle\Entity\Team:
+   team{1..5}:
+        team (unique): team<numberBetween(1, 10)>

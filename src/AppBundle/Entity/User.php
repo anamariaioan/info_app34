@@ -172,7 +172,4 @@ class User implements UserInterface
         // Doctrine *not* saving this entity, if only plainPassword changes
         $this->password = null;
     }
-
-
-
 }

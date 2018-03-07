@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="left-panel">
+        <ul class="release-panel">
+            <li><a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary btn-add"> Home </button></a></li>
+            <li><a href="{{ path('add') }}"><button type="button" class="btn btn-primary btn-add"> New release </button></a></li>
+            <li><a href="{{ path('search') }}"><button type="button" class="btn btn-primary btn-search">List releases</button></a></li>
+        </ul>
+    </div>
+
+    <div class="body-release">
+        <div class="title-release">
+            <h1>Search release</h1>
+        </div>
+
+    </div>
+
+
+{% endblock %}

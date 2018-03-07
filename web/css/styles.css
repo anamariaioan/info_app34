@@ -92,6 +92,15 @@ body {
     float: left;
 
 }
+
+.body-release {
+    text-align: center;
+    display: flex;
+    width: 75%;
+    height: 100%;
+    float: right;
+}
+
 .release-panel {
     width: 100%;
     list-style: none;
@@ -103,6 +112,70 @@ body {
     height: 20px;
     width: auto;
 }
+
+.top3 {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    text-align: center;
+}
+
+.top3releases {
+    position: absolute;
+    top: 400px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    /*border: solid 1px black;*/
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    background: #f9f9f9; /* Show a solid color for older browsers */
+    background: -moz-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -o-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e5e5e5)); /* Older webkit syntax */
+    background: -webkit-linear-gradient(#f9f9f9, #e5e5e5);
+    color: #373737;
+}
+
+.top3apps {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    /*border: solid 1px black;*/
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    background: #f9f9f9; /* Show a solid color for older browsers */
+    background: -moz-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -o-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e5e5e5)); /* Older webkit syntax */
+    background: -webkit-linear-gradient(#f9f9f9, #e5e5e5);
+    color: #373737;
+}
+
+.popular-ul {
+    text-align: left;
+    list-style: none;
+
+}
+
+.news {
+    position: absolute;
+    top: 80px;
+    left: 400px;
+}
+
+.font {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
 
 /******************************
 Buttons Styling
