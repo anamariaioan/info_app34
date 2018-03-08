@@ -11,7 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TeamRepository")
  * @ORM\Table(name="teams")
  */
 class Team
@@ -53,6 +53,10 @@ class Team
         $this->team = $team;
     }
 
+    public function __toString()
+    {
+        return $this->team;
+    }
 
 
 }

@@ -1,0 +1,10 @@
+{{ form_start(releaseForm) }}
+    {{ form_errors(releaseForm) }}
+
+    {{ form_row(releaseForm.nameRelease) }}
+
+    {{ form_row(releaseForm.descriptionRelease) }}
+
+    {{ form_row(releaseForm.applicationRelease, {
+        'placeholder': 'Select an application'
+    }) }}

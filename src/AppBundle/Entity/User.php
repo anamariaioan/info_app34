@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="users")
  */
 class User implements UserInterface
@@ -193,6 +193,11 @@ class User implements UserInterface
     public function setTeam(Team $team)
     {
         $this->team = $team;
+    }
+
+    public function __toString()
+    {
+        return $this->userName;
     }
 
 }

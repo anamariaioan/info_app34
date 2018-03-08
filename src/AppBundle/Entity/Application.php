@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ApplicationRepository")
  * @ORM\Table(name="applications")
  */
 class Application
@@ -91,6 +91,11 @@ class Application
         $this->team = $team;
     }
 
+    public function __toString()
+    {
+        return (string) $this->application;
+
+    }
 
 
 }
