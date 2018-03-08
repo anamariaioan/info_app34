@@ -10,18 +10,18 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-///**
-// * @ORM\Entity
-// * @ORM\Table(name="release")
-// */
-//class Release
-//{
-//    private $id;
-//
-//    private $name;
-//
-//    private $description;
-//
-//
-//
-//}
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="release")
+ */
+class Release
+{
+    private $id;
+
+    private $name;
+
+    private $description;
+
+
+
+}

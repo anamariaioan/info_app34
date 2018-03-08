@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,22 @@ class Application
      */
 
     private $application;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="users_applications")
+     */
+    private $appUser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Team")
+     */
+    private $team;
+
+    public function __construct()
+    {
+        $this->appUser = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -52,6 +69,28 @@ class Application
     {
         $this->application = $application;
     }
+
+    public function addAppUser(User $user)
+    {
+        $this->appUser[] = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     */
+    public function setTeam(Team $team)
+    {
+        $this->team = $team;
+    }
+
 
 
 }

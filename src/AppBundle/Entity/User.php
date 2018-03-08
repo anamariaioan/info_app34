@@ -49,6 +49,11 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Team")
+     */
+    private $team;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -57,6 +62,7 @@ class User implements UserInterface
     }
 
     /**
+     * @ORM\ManyToOne(targetEntity="Genus")
      * @param mixed $userName
      */
     public function setUserName($userName)
@@ -172,4 +178,21 @@ class User implements UserInterface
         // Doctrine *not* saving this entity, if only plainPassword changes
         $this->password = null;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     */
+    public function setTeam(Team $team)
+    {
+        $this->team = $team;
+    }
+
 }
