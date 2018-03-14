@@ -35,30 +35,10 @@ class ReleaseService
 
     public function saveNewRelease($data)
     {
+       $data->setApplicationRelease($data->getApplicationRelease()->getId());
 
-//        /** @var ApplicationRepository $applicationReleaseRepository */
-//        $applicationReleaseRepository = $this->entityManager->getRepository('AppBundle:Application');
-//        $applicationRelease = $applicationReleaseRepository->findAny();
-//        $applicationsInvolved = $this->getRepository('AppBundle:Application')
-//            ->findAny();
-//        $informedTeams = $em->getRepository('AppBundle:Team')
-//            ->findAny();
-//        $informedUsers = $em->getRepository('AppBundle:User')
-//            ->findAny();
-
+        $this->entityManager->persist($data);
 //        dump($data);die;
-
-//        $release = new Release();
-//        $release->setNameRelease($data['nameRelease']);
-//        $release->setDescriptionRelease($data['descriptionRelease']);
-//        $release->setApplicationRelease($data['applicationRelease']);
-//        $release->setApplicationsInvolved($data['applicationsInvolved']);
-//        $release->setInformedTeams($data['informedTeams']);
-//        $release->setInformedUsers($data['informedUsers']);
-
-//        dump($release);die;
-$data->setInformedTeams($data->getInformedTeams()->getId()); 
-       $this->entityManager->persist($data);
         $this->entityManager->flush();
     }
 

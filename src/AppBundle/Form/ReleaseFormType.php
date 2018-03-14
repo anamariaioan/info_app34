@@ -40,30 +40,32 @@ class ReleaseFormType extends AbstractType
                     return $repo->createAlphabeticalQueryBuilder();
                 }
             ])
-            ->add('applicationsInvolved', EntityType::class, [
-                'placeholder' => 'Choose an application',
-                'class' => Application::class,
-                'choice_label' => 'application',
-                'multiple' => true,
-                'query_builder' => function(ApplicationRepository $repo) {
-                    return $repo->createAlphabeticalQueryBuilder();
-                }
-            ])
-            ->add('informedTeams', EntityType::class, [
-                'placeholder' => 'Choose a team',
-                'class' => Team::class,
-                'query_builder' => function(TeamRepository $repo) {
-                    return $repo->createAlphabeticalQueryBuilder();
-                }
-             ])
-            ->add('informedUsers', EntityType::class, [
-                'placeholder' => 'Choose an user',
-                'class' => User::class,
-                'query_builder' => function(UserRepository $repo) {
-                    return $repo->createAlphabeticalQueryBuilder();
-                }
-            ])
-            ->add('save', SubmitType::class)
+//            ->add('applicationsInvolved', EntityType::class, [
+//                'placeholder' => 'Choose an application',
+//                'class' => Application::class,
+//                'choice_label' => 'application',
+//                'multiple' => true,
+//                'query_builder' => function(ApplicationRepository $repo) {
+//                    return $repo->createAlphabeticalQueryBuilder();
+//                }
+//            ])
+//            ->add('informedTeams', EntityType::class, [
+//                'placeholder' => 'Choose a team',
+//                'class' => Team::class,
+//                'multiple' => true,
+//                'query_builder' => function(TeamRepository $repo) {
+//                    return $repo->createAlphabeticalQueryBuilder();
+//                }
+//             ])
+//            ->add('informedUsers', EntityType::class, [
+//                'placeholder' => 'Choose an user',
+//                'class' => User::class,
+//                'multiple' => true,
+//                'query_builder' => function(UserRepository $repo) {
+//                    return $repo->createAlphabeticalQueryBuilder();
+//                }
+//            ])
+            ->add('Next', SubmitType::class)
             ;
     }
 

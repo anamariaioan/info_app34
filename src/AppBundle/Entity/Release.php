@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="release")
+ * @ORM\Table(name="releases")
  */
 class Release
 {
@@ -25,38 +25,21 @@ class Release
     private $id;
 
     /**
-     * @ORM\Column(type="string", name="name_release")
+     * @ORM\Column(type="string", name="title")
      */
     private $nameRelease;
 
     /**
-     * @ORM\Column(type="string", name="description_release")
+     * @ORM\Column(type="string", name="description")
      */
     private $descriptionRelease;
 
     /**
-     * @ORM\Column(type="integer", name="application_release")
+     * @ORM\Column(type="integer", name="application")
      * @ORM\ManyToOne(targetEntity="Application")
      */
     private $applicationRelease;
 
-    /**
-     * @ORM\Column(type="integer", name="applications_involved")
-     * @ORM\OneToMany(targetEntity="Application")
-     */
-    private $applicationsInvolved;
-
-    /**
-     * @ORM\Column(type="integer", name="informed_teams")
-     * @ORM\OneToMany(targetEntity="Team")
-     */
-    private $informedTeams;
-
-    /**
-     * @ORM\Column(type="integer", name="informed_users")
-     * @ORM\OneToMany(targetEntity="User")
-     */
-    private $informedUsers;
 
     /**
      * @return mixed
@@ -69,7 +52,6 @@ class Release
     public function __construct()
     {
         $this->applicationRelease = new ArrayCollection();
-
     }
 
     /**
@@ -118,54 +100,6 @@ class Release
     public function setApplicationRelease($application)
     {
         $this->applicationRelease = $application;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getApplicationsInvolved()
-    {
-        return $this->applicationsInvolved;
-    }
-
-    /**
-     * @param mixed $applicationsInvolved
-     */
-    public function setApplicationsInvolved($application)
-    {
-        $this->applicationsInvolved = $application;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInformedTeams()
-    {
-        return $this->informedTeams;
-    }
-
-    /**
-     * @param mixed $informedTeams
-     */
-    public function setInformedTeams($team)
-    {
-        $this->informedTeams = $team;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInformedUsers()
-    {
-        return $this->informedUsers;
-    }
-
-    /**
-     * @param mixed $informedUsers
-     */
-    public function setInformedUsers($user)
-    {
-        $this->informedUsers = $user;
     }
 
 }
