@@ -20,48 +20,42 @@ class Release
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="id")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="name_release")
      */
-
     private $nameRelease;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="description_release")
      */
-
     private $descriptionRelease;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="application_release")
      * @ORM\ManyToOne(targetEntity="Application")
      */
-
     private $applicationRelease;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="applications_involved")
      * @ORM\OneToMany(targetEntity="Application")
      */
-
     private $applicationsInvolved;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="informed_teams")
      * @ORM\OneToMany(targetEntity="Team")
      */
-
     private $informedTeams;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="informed_users")
      * @ORM\OneToMany(targetEntity="User")
      */
-
     private $informedUsers;
 
     /**
@@ -173,7 +167,5 @@ class Release
     {
         $this->informedUsers = $user;
     }
-
-
 
 }

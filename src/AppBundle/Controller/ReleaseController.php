@@ -8,42 +8,25 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Application;
-use AppBundle\Entity\Release;
 use AppBundle\Form\ReleaseFormType;
+use AppBundle\Service\ReleaseService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ReleaseController extends Controller
 {
     /**
      * @Route("/add_release", name="add")
      */
-    public function newRelease()
+    public function newReleaseAction(Request $request, ReleaseService $releaseService)
     {
         $form = $this->createForm(ReleaseFormType::class);
-        $em = $this->getDoctrine()->getManager();
 
-        $applicationRelease = $em->getRepository('AppBundle:Application')
-            ->findAny();
-        $applicationsInvolved = $em->getRepository('AppBundle:Application')
-            ->findAny();
-        $informedTeams = $em->getRepository('AppBundle:Team')
-            ->findAny();;
-        $informedUsers = $em->getRepository('AppBundle:User')
-            ->findAny();
-
-        $release = new Release();
-        $release->setNameRelease('');
-        $release->setDescriptionRelease('');
-        $release->setApplicationRelease( $applicationRelease);
-        $release->setApplicationsInvolved($applicationsInvolved);
-        $release->setInformedTeams( $informedTeams);
-        $release->setInformedUsers($informedUsers);
-
-//        $em->persist($release);
-//        $em->flush();
-
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $releaseService->saveNewRelease($form->getData());
+        }
 
         return $this->render('release/add.html.twig', [
             'releaseForm' => $form->createView()

@@ -62,7 +62,6 @@ class User implements UserInterface
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Genus")
      * @param mixed $userName
      */
     public function setUserName($userName)

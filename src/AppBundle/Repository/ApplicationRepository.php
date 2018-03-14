@@ -22,7 +22,6 @@ class ApplicationRepository extends EntityRepository
     }
     /**
      * @return Application
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findAny()
     {
