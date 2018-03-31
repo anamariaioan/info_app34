@@ -24,6 +24,7 @@ class ReleaseController extends Controller
         $form = $this->createForm(ReleaseFormType::class);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $releaseService->saveNewRelease($form->getData());
         }
@@ -31,6 +32,21 @@ class ReleaseController extends Controller
         return $this->render('release/add.html.twig', [
             'releaseForm' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/add_release/inform", name="inform")
+     */
+    public function informOthers(Request $request)
+    {
+        $form = $this->createForm(ReleaseFormType::class);
+
+        $form->handleRequest($request);
+
+        return $this->render('release/inform.html.twig', [
+            'informForm' => $form->createView()
+        ]);
+
     }
 
     /**

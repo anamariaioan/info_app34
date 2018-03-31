@@ -1,0 +1,25 @@
+{% extends 'home/show.html.twig' %}
+
+{% block body %}
+
+<div class="left-panel">
+    <ul class="release-panel">
+        <li><a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary btn-add"> Home </button></a></li>
+        <li><a href="{{ path('add') }}"><button type="button" class="btn btn-primary btn-add"> New release </button></a></li>
+        <li><a href="{{ path('search') }}"><button type="button" class="btn btn-primary btn-search">List releases</button></a></li>
+    </ul>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Spread the Joy</h1>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

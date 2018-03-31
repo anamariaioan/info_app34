@@ -2,23 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: anamaria.ioan
- * Date: 3/12/2018
- * Time: 1:12 PM
+ * Date: 3/31/2018
+ * Time: 7:16 PM
  */
 
 namespace AppBundle\Service;
 
-
 use Doctrine\ORM\EntityManager;
 
-class ReleaseService
+class InformOthersService
 {
     /** @var EntityManager */
     private $entityManager;
 
     public function __construct(EntityManager $entityManager)
     {
-        $this->entityManager = $entityManager;
+        $this->entityManager  = $entityManager;
     }
 
     /**
@@ -29,13 +28,9 @@ class ReleaseService
         $this->entityManager = $entityManager;
     }
 
-
-    public function saveNewRelease($data)
+    public function saveInformedOthersDetails($data)
     {
-        $data->setApplicationRelease($data->getApplicationRelease()->getId());
-
         $this->entityManager->persist($data);
         $this->entityManager->flush();
     }
-
 }
