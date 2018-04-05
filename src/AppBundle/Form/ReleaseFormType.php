@@ -36,7 +36,7 @@ class ReleaseFormType extends AbstractType
                     return $repo->createAlphabeticalQueryBuilder();
                 }
             ])
-            ->add('That`s all? Save', SubmitType::class)
+            ->add('submit', SubmitType::class)
             ;
     }
 

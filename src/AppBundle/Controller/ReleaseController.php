@@ -28,8 +28,7 @@ class ReleaseController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $releaseId = $releaseService->saveNewRelease($form->getData());
 
-            return $this->render('release/add.html.twig', [
-                'releaseForm' => $form->createView(),
+            return $this->redirectToRoute('release_saved', [
                 'releaseId' => $releaseId
             ]);
         }
@@ -38,6 +37,22 @@ class ReleaseController extends Controller
             'releaseForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/add_release/release_saved/{releaseId}", name="release_saved")
+     * @param int $releaseId
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function releaseSavedAction(int $releaseId, Request $request)
+    {
+        return $this->render('release/release_saved.html.twig', [
+                'releaseId' => $releaseId
+            ]);
+
+    }
+
+
 
     /**
      * @Route("/search_release", name="search")

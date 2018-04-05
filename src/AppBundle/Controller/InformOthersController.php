@@ -32,6 +32,11 @@ class InformOthersController extends Controller
             $valoaredepeget = $request->attributes->get('releaseId');
 
             $informedOthersService->saveInformedOthersDetails($valoaredepeget, $form->getData());
+
+            header('Refresh: 10; URL=http://gen-centos729942-all-dev.newton.c.emag.network/app_dev.php/home');
+
+            $this->addFlash('success', 'Great! Now your release is super popular. We are redirecting you to homepage, at least we can do for you.');
+//            return $this->redirectToRoute("homepage");
         }
 
         return $this->render('release/inform.html.twig', [
