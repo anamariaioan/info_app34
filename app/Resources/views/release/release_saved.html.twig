@@ -13,17 +13,19 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Add a new release</h1>
+                <h1>Congrats!</h1>
 
-                {{ include('release/_formRelease.html.twig') }}
+                <h3>Your released is saved. Great job!</h3>
+                <h3>Now, if there is anyone you want to share this information or if there are any applications that need your release, let them know!</h3>
+
+                <h2>Spread the joy by clicking the button below. Else, just go back to work!</h2>
 
 
-                {% if releaseId is defined %}
                     <a href="{{ path('inform', {'releaseId' : releaseId }) }}"><button type="button" class="btn btn-primary btn-add"> Any application involved? </button></a>
-                {% endif %}
+
+                    <a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary btn-add"> Back to work! </button></a>
             </div>
         </div>
     </div>
-
 
 {% endblock %}

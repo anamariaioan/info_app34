@@ -17,8 +17,7 @@ class ApplicationRepository extends EntityRepository
     public function createAlphabeticalQueryBuilder()
     {
         return $this->createQueryBuilder('applications')
-            ->orderBy('applications.application', 'ASC')
-            ;
+            ->orderBy('applications.application', 'ASC');
     }
     /**
      * @return Application

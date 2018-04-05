@@ -8,6 +8,12 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\Application;
+use AppBundle\Entity\ApplicationsInvolved;
+use AppBundle\Entity\InformedTeams;
+use AppBundle\Entity\InformedUsers;
+use AppBundle\Entity\Team;
+use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
 
 class InformOthersService
@@ -28,9 +34,38 @@ class InformOthersService
         $this->entityManager = $entityManager;
     }
 
-    public function saveInformedOthersDetails($data)
+    public function saveInformedOthersDetails($releaseId, $data)
     {
-        $this->entityManager->persist($data);
+
+        /** @var Application $applicationInvolved */
+        foreach ($data['applicationsInvolved'] as $applicationInvolved) {
+            $newApplicationInvolved = new ApplicationsInvolved();
+            $newApplicationInvolved->setIdRelease($releaseId)
+                ->setIdApplication($applicationInvolved->getId());
+
+            $this->entityManager->persist($newApplicationInvolved);
+        }
+
+        /** @var Team $informedTeam */
+        foreach ($data['informedTeams'] as $informedTeam){
+            $newInformedTeam = new InformedTeams();
+            $newInformedTeam->setIdRelease($releaseId)
+                ->setIdTeam($informedTeam->getId());
+
+            $this->entityManager->persist($newInformedTeam);
+        }
+
+        /** @var User $informedUser */
+        foreach ($data['informedUsers'] as $informedUser){
+            $newInformedUsers = new InformedUsers();
+            $newInformedUsers->setIdRelease($releaseId)
+                ->setIdUser($informedUser->getId());
+
+            $this->entityManager->persist($newInformedUsers);
+        }
+
+
+
         $this->entityManager->flush();
     }
 }

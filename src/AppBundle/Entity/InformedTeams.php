@@ -11,7 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TeamRepository")
  * @ORM\Table(name="informed_teams")
  */
 class InformedTeams
@@ -51,11 +51,15 @@ class InformedTeams
     }
 
     /**
-     * @param mixed $idRelease
+     * @param int $idRelease
+     *
+     * @return $this
      */
     public function setIdRelease($idRelease)
     {
         $this->idRelease = $idRelease;
+
+        return $this;
     }
 
     /**

@@ -29,13 +29,17 @@ class ReleaseService
         $this->entityManager = $entityManager;
     }
 
-
     public function saveNewRelease($data)
     {
+
         $data->setApplicationRelease($data->getApplicationRelease()->getId());
+
 
         $this->entityManager->persist($data);
         $this->entityManager->flush();
+
+        return $data->getId();
+
     }
 
 }

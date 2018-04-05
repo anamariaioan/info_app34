@@ -27,7 +27,6 @@ class Application
     /**
      * @ORM\Column(type="string", unique=true)
      */
-
     private $application;
 
     /**

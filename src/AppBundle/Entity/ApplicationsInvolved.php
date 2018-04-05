@@ -8,10 +8,11 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ApplicationsInvolvedRepository")
  * @ORM\Table(name="applications_involved")
  */
 class ApplicationsInvolved
@@ -34,6 +35,11 @@ class ApplicationsInvolved
      */
     private $idApplication;
 
+    public function __construct()
+    {
+        $this->idApplication = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -51,11 +57,15 @@ class ApplicationsInvolved
     }
 
     /**
-     * @param mixed $idRelease
+     * @param int $idRelease
+     *
+     * @return $this
      */
     public function setIdRelease($idRelease)
     {
         $this->idRelease = $idRelease;
+
+        return $this;
     }
 
     /**
@@ -69,9 +79,9 @@ class ApplicationsInvolved
     /**
      * @param mixed $idApplication
      */
-    public function setIdApplication($idApplication)
+    public function setIdApplication($application)
     {
-        $this->idApplication = $idApplication;
+        $this->idApplication = $application;
     }
 
 

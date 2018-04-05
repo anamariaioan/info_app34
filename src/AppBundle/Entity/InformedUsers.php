@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="informed_users")
  */
 class InformedUsers
@@ -44,7 +44,7 @@ class InformedUsers
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getIdRelease()
     {
@@ -52,11 +52,15 @@ class InformedUsers
     }
 
     /**
-     * @param mixed $idRelease
+     * @param int $idRelease
+     *
+     * @return $this
      */
     public function setIdRelease($idRelease)
     {
         $this->idRelease = $idRelease;
+
+        return $this;
     }
 
     /**
