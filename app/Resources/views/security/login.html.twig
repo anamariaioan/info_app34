@@ -1,27 +1,65 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Info App!{% endblock %}</title>
 
-{% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1>Please Login</h1>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ date().timestamp }}">
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-                {% if error %}
-                    <div class="alert alert-danger">
-                        {{ error.messageKey|trans(error.messageData, 'security') }}
-                    </div>
-                {% endif %}
+</head>
+<body>
+<header class="header">
+    <div><a href="{{ path('homepage') }}"><img class="logo-icon" src="{{ asset('images/logo.png') }}"></a></div>
+    <h1 class="logo"> Info App </h1>
+    <ul class="navi">
+        {% if is_granted('ROLE_USER') %}
+            <li><a href="{{ path('security_logout') }}">Logout</a></li>
+        {% endif %}
 
-                {{ form_start(form) }}
-                {{ form_row(form._username) }}
-                {{ form_row(form._password) }}
+    </ul>
+</header>
 
-                <button type="submit" class="btn-login btn-success">Login <span class="fa fa-lock"></span> </button>
+<div class="main-content">
 
-                {{ form_end(form) }}
-
+    <div>
+        {% for msg in app.session.flashBag.get('success') %}
+            <div class="alert alert-success">
+                {{ msg }}
             </div>
-        </div>
-    </div>
+        {% endfor %}
 
-{% endblock %}
+        {% block body %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>Please Login</h1>
+
+                        {% if error %}
+                            <div class="alert alert-danger">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+
+                        {{ form_start(form) }}
+                        {{ form_row(form._username) }}
+                        {{ form_row(form._password) }}
+
+                        <button type="submit" class="btn-login btn-success">Login <span class="fa fa-lock"></span> </button>
+
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

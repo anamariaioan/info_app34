@@ -47,20 +47,8 @@ class ReleaseController extends Controller
     public function releaseSavedAction(int $releaseId, Request $request)
     {
         return $this->render('release/release_saved.html.twig', [
-                'releaseId' => $releaseId
-            ]);
+            'releaseId' => $releaseId
+        ]);
 
     }
-
-
-
-    /**
-     * @Route("/search_release", name="search")
-     */
-
-    public function listRelease()
-    {
-        return $this->render('release/search.html.twig');
-    }
-
 }

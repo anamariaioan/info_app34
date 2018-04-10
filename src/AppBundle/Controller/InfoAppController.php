@@ -17,9 +17,21 @@ class InfoAppController extends Controller
     /**
      * @Route("/home", name="homepage")
      */
-    public function showAction()
+    public function listReleasesAction()
     {
-        return $this->render('home/show.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $releases = $em->getRepository('AppBundle:Release')
+            ->findAll();
+
+        $applications = $em->getRepository('AppBundle:Application')
+            ->findOneBy(['id']);
+
+
+        return $this->render('home/show.html.twig', [
+            'releases' => $releases,
+            'application_name' =>$applications
+        ]);
     }
 
 }

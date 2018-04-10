@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
 </head>
 <body>
 <header class="header">
@@ -26,13 +27,15 @@
 <div class="main-content">
 
     <div>
-        {% for msg in app.session.flashBag.get('success') %}
-            <div class="alert alert-success">
-                {{ msg }}
-            </div>
-        {% endfor %}
+        <div class="left-panel">
+            <ul class="release-panel">
+                <li><a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary btn-add"> Home </button></a></li>
+                <li><a href="{{ path('add') }}"><button type="button" class="btn btn-primary btn-add"> New release </button></a></li>
+            </ul>
+        </div>
 
         {% block body %}
+
         {% endblock %}
     </div>
 </div>
